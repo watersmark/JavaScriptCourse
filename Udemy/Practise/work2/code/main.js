@@ -32,7 +32,8 @@ console.log(options.makeTest(1, 41));
 
 // для деструктуризации, можно вытаскивать объекты 
 // из родительского объекта
-
 const {border, bg} = options.color;
+
 console.log(border);
 console.log(bg);
+
