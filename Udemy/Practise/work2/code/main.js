@@ -1,41 +1,36 @@
 `use strict`;
 
-// для проверки, что значение равно NaN
-// для undefind и +undefind и пустого значния выведется true
-if(isNaN()){
-    console.log("good");
+// создаём объект
+const options = {
+    name: 'Sanya',
+    width: 1024,
+    height: 1024,
+    color: {
+        border: 'black',
+        bg: 'red'
+    }
+};
+
+// для удаления элемента из объекта
+// используем оператор delete
+// свойство будет полностью удалено
+delete options.name;
+console.log(options);
+
+// для перебора всех свойств объектов
+// используем цикл
+// внутри цикла проверяем, что является ли наше 
+// свойство вложенным объектом
+for (let key in options){
+    if(typeof(options[key]) === 'object'){
+        for(let i in options[key]){
+            console.log(`войство ${i} имеет значение ${options[key][i]}`); 
+        }
+    }
+    else{
+        console.log(`Свойство ${key} имеет значение ${options[key]}`);
+    }
+
+   
 }
-else{
-    console.log("bad");
-}
 
-
-// в данной функции используется задержка 
-function first(){
-    setTimeout(function(){
-        console.log(1);
-    }, 500);
-    
-}
-
-// данная функция без задержки 
-function second(){
-    console.log(2);
-}
-
-first();
-second();
-
-
-// создадим callback функцию
-// передадим внутрь ней другую функцию
-// вторая функция выполнится только после первой 
-function learnJS(arg1, arg2){
-    console.log(`Я учу ${arg1}`);
-    arg2();
-}
-
-// используем анонимную функцию
-// анонимная функция исчезнет сразу после завершения метода, в который она
-// была передана
-learnJS('JS', function(){console.log("I end this lessons");});
