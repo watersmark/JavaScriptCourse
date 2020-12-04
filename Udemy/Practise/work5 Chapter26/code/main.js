@@ -1,42 +1,23 @@
 `use strict`;
 
-// js это язык с динамической типизацией
-// переменная может стать любым типом
-// рассмотрим примеры преобразования 
-// одних типов в другие
+// обращаемся к элементам страницы
+const box = document.getElementById('box'),
+            btns = document.getElementsByTagName('button'),
+            hearts = document.querySelectorAll('.heart');
 
-let name = null;
+// ставим для элемента методы поотдельности
+// btns[1].style.borderRadius = '100%';
 
-// преобразование любых данных в строку
-console.log(typeof(String(name)));
+// ставим несколько тегов для элемента страницы
+box.style.cssText = 'backgroung-color: blue; width: 500px';
 
-// при сложении строкового типа с 
-// любым другим типом данных
-const fontSize = 26 + 'px';
+// перебираем элементы внутри псевдоцикла
+for(let i = 0; i < hearts.length; i++){
+    hearts[i].style.backgroundColor = 'blue';
+}
 
-// для преобразования в число
-// данный способ менее удобен, чем 
-// унарный плюс
-console.log(Number('4'), typeof(Number('4')));
 
-// для преобразования в число
-// используем унарный плюс
-let age = +'23';
-console.log(age, typeof(age));
-
-// так же можно использовать 
-// метод parseInt(), но данный 
-// метод не всегда очевиден с выходными данными
-let back = parseInt('23px');
-console.log(back, typeof(back));
-
-// 0, '', null, undefined, NaN
-// будут превращаться в false
-// При кастовании к bool
-let bool = null;
-
-// так можно кастовать к bool
-console.log(Boolean(bool));
-
-// очень редкий способ каста к bool
-console.log(!!'89');
+for(let elem in hearts){
+    console.log(typeof(elem));
+    console.log(hearts.length);
+}
