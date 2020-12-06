@@ -1,31 +1,29 @@
 `use strict`;
 
-function longest(s1, s2) {
-    
+// создадим map и добавим в него значения поумолчанию
+let mapEat = new Map([['milk', 250], [{eat : {orn: 454}}, 400], ['bread', 45]]);
+
+
+// перебираем значения элементов из map ы цикле
+// map можно перебрать только через of
+// в map перебор происходит в порядке вставки элементов
+for (let elem of mapEat){
+    console.log(elem);
 }
 
-// create map
-let mapTest = new Map();
+// перебираем map по ключам
+for(let elem of mapEat.keys()){
+    console.log(elem);
+}
 
-// добавляем элементы, если элемент уже существовал
-// он просто перезаписывается
-// можно добавлять строки и числа как ключи 
-mapTest.set('temp', 11);
-mapTest.set('temp', 12);
-mapTest.set(5, 1);
+// перебираем map по значениям
+for(let elem of mapEat.values()){
+    console.log(elem);
+}
 
-// получаем элементы из map по ключу
-console.log(mapTest.get(5));
-console.log(mapTest.get('temp'));
+// у map есть встроенный метод forEach
 
-// узнаём размер map, size это
-// свойство, а не метод
-console.log(mapTest.size);
+mapEat.forEach((value, key, map) => {
+    console.log(key, value);
+});
 
-// очищаем map
-// mapTest.clear();
-// console.log(mapTest);
-
-// узнаём есть ли в множестве 
-// ключ который мы передали в метод
-console.log(mapTest.has(5));
